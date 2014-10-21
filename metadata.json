@@ -1,0 +1,14 @@
+{
+  "name": "buzzdeee-sogo",
+  "version": "0.1.0",
+  "author": "Sebastian Reitenbach",
+  "summary": "A Puppet Module to manage SOGo Groupware",
+  "license": "Apache 2.0",
+  "source": "https://github.com/buzzdeee/buzzdeee-sogo.git",
+  "project_page": "https://github.com/buzzdeee/buzzdeee-sogo",
+  "issues_url": "https://github.com/buzzdeee/buzzdeee-sogo/issues",
+  "dependencies": [
+    {"name":"puppetlabs-stdlib","version_requirement":">= 1.0.0"}
+  ]
+}
+
