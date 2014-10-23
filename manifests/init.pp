@@ -35,7 +35,35 @@
 #
 # Copyright 2014 Your name here, unless otherwise noted.
 #
-class sogo {
+class sogo (
+  $sogo_defaults_defaultvalues = $sogo::params::sogo_defaults_defaultvalues,
+  $sogo_defaults = $sogo::params::sogo_defaults,
+  $package_name = $sogo::params::package_name,
+  $package_ensure = $sogo::params::package_ensure,
+  $service_name = $sogo::params::service_name,
+  $service_ensure = $sogo::params::service_ensure,
+  $service_enable = $sogo::params::service_enable,
+  $service_flags = $sogo::params::service_flags,
+) inherits sogo::params {
 
+  class { 'sogo::install':
+    package_name   => $package_name,
+    package_ensure => $package_ensure,
+  }
 
+  class { 'sogo::config':
+    sogo_defaults_defaultvalues => $sogo_defaults_defaultvalues,
+    sogo_defaults               => $sogo_defaults,
+  }
+
+  class { 'sogo::service':
+    service_name   => $service_name,
+    service_ensure => $service_ensure,
+    service_enable => $service_enable,
+    service_flags  => $service_flags,
+  }
+
+  Class['sogo::install'] ->
+  Class['sogo::config'] ~>
+  Class['sogo::service']
 }
