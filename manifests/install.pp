@@ -21,4 +21,8 @@ class sogo::install (
     creates => '/var/www/lib/sogo/www',
   }
 
+  Package[$package_name] ->
+  File[$webdirs] -> 
+  Exec['copy sogo webresources']
+
 }
