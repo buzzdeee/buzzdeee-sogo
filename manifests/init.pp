@@ -56,6 +56,8 @@ class sogo (
     sogo_defaults               => $sogo_defaults,
   }
 
+  class { 'sogo::syslog': }
+
   class { 'sogo::service':
     service_name   => $service_name,
     service_ensure => $service_ensure,
@@ -64,6 +66,7 @@ class sogo (
   }
 
   Class['sogo::install'] ->
+  Class['sogo::syslog'] ->
   Class['sogo::config'] ~>
   Class['sogo::service']
 }
