@@ -57,7 +57,7 @@ class sogo (
   }
 
   class { 'sogo::syslog':
-    $sogo_service_ensure => $service_ensure,
+    sogo_service_ensure => $service_ensure,
   }
 
   class { 'sogo::service':
