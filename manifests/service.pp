@@ -7,6 +7,6 @@ class sogo::service (
   service { $service_name:
     ensure => $service_ensure,
     enable => $service_enable,
-    flags => $service_flags,
+    flags  => $service_flags,
   }
 }

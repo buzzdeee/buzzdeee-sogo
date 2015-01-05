@@ -22,7 +22,7 @@ class sogo::install (
   }
 
   Package[$package_name] ->
-  File[$webdirs] -> 
+  File[$webdirs] ->
   Exec['copy sogo webresources']
 
 }
